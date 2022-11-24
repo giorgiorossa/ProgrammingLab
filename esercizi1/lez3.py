@@ -8,6 +8,4 @@ def sum_csv(file):
             somma=somma+valore
     return (somma)
 
-my_file=open('shampoo_sales.csv', 'r')
-pippo=sum_csv(my_file)
-print('{}'.format(pippo))
+
