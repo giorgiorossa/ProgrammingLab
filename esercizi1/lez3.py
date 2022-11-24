@@ -1,15 +1,13 @@
-my_file=open('shampoo.sales.csv', 'r')
 
-def sum_csv(my_file):
-    for line in my_file
+def sum_csv(file):    
+    somma=0
+    for line in file:
         elements=line.split(',')
-        date=elements[0]
-        value=elements[1]
-        values.append(value)
-        valore=float(values)
-        somma=0
-        somma+=valore
-        return (somma)
+        if elements[0] != 'Date':
+            valore=float(elements[1])
+            somma=somma+valore
+    return (somma)
 
-somma=sum_csv('shampoo.sales.csv')
-print('{}'.format(somma))
+my_file=open('shampoo_sales.csv', 'r')
+pippo=sum_csv(my_file)
+print('{}'.format(pippo))
