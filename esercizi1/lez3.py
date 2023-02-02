@@ -8,4 +8,6 @@ def sum_csv(file):
             somma=somma+valore
     return (somma)
 
-
+file=open('shampoo_sales.csv')
+tot=sum_csv(file)
+print('{}'.format(tot))
