@@ -11,7 +11,7 @@ class CSVTimeSeriesFile():
 
     def get_data(self):
         try:
-            open_file=open('data.csv','r')
+            open_file=open('self.name','r')
         except:
             raise ExamException('Errore, il file non è leggibile')
 
@@ -27,12 +27,14 @@ class CSVTimeSeriesFile():
                     lista_line=[]
                     lista_line.append(elements[0]) 
                     lista_line.append(elements[1])
+                    print(lista_line)
                     lista_dati.append(lista_line)
                     if n_lista>1:
                         if elements[0]<=elements_0_precedente:
                             raise ExamException('Timestamp fuori ordine')
-                    elements_0_precedente=elements[0] 
+                    elements_0_precedente=elements[0]
                 n_lista+=1
+                print(n_lista)
             print(lista_dati)
         except:
             pass
@@ -72,6 +74,6 @@ def compute_daily_max_difference(time_series):
         raise ExamException('Errore')
     
 
-time_series_file = CSVTimeSeriesFile('data.csv')
+time_series_file = CSVTimeSeriesFile('123.csv')
 time_series = time_series_file.get_data()        
 print(compute_daily_max_difference(time_series))
