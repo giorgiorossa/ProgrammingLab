@@ -22,6 +22,9 @@ class CSVTimeSeriesFile():
             try:
                 if n_lista != 0:
                     elements = line.split(',')
+                    anno_mese = elements[0].split('-')
+                    anno=int(anno_mese[0])
+                    mese=int(anno_mese[1])
                     elements[1] = int(elements[1])
                     lista_line = []
                     lista_line.append(elements[0])
@@ -58,7 +61,7 @@ class CSVTimeSeriesFile():
         return lista_dati
 
 
-years=[1958, 1959]
+# years=[1958, 1959]
 
 
 def detect_similar_monthly_variations(time_series, years):

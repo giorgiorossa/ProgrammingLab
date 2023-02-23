@@ -20,7 +20,9 @@ class CSVTimeSeriesFile():
                 elements=line.split(',')
                 try:
                     elements[0]=int(float(elements[0]))
+                    # print(elements[0])
                     elements[1]=float(elements[1])
+                    print(elements[0],elements[1])
                     elements_0e1=[]
                     elements_0e1.append(elements[0])
                     elements_0e1.append(elements[1])
@@ -35,6 +37,7 @@ class CSVTimeSeriesFile():
         for line in lista_di_liste:
             if count>0:
                 if line[0]<=lista_di_liste[count-1][0]:
+                    # print(line[0])
                     raise ExamException('timestamp non ordinati')
             count+=1
         return lista_di_liste
@@ -46,6 +49,7 @@ def compute_daily_max_difference(time_series):
         max=None
         ep_in_giorno_line_preced=None
         for line in time_series:
+            # print(line[1])
             epoch_inizio_giorno=line[0]-(line[0]%86400)
             if epoch_inizio_giorno!=ep_in_giorno_line_preced:
             #se è il primo dato del giorno
